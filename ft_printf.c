@@ -6,7 +6,7 @@
 /*   By: lhoerger <lhoerger@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 21:13:05 by lhoerger          #+#    #+#             */
-/*   Updated: 2021/07/13 18:51:42 by lhoerger         ###   ########.fr       */
+/*   Updated: 2021/07/13 18:54:24 by lhoerger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_putchar(char c);
 
 void ft_putptr(void *ptr)
 {
-	write (1, "0x7ffc", 6);
+	write (1, "0x", 2);
 	ft_puthex(ptr);
 }
 
@@ -40,7 +40,7 @@ void ft_putunsigndec(unsigned int i)
 	}
 }
 
-void ft_puthex(unsigned int i)
+void ft_puthex(unsigned long i)
 {
 	//printf("Beginn: %i\n", i);
 	if (i == 0)
