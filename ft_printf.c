@@ -6,7 +6,7 @@
 /*   By: lhoerger <lhoerger@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 21:13:05 by lhoerger          #+#    #+#             */
-/*   Updated: 2021/07/12 20:18:08 by lhoerger         ###   ########.fr       */
+/*   Updated: 2021/07/13 18:51:42 by lhoerger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,9 @@ int main()
 	//printf("s:%");
 	char c = '1';
 	char *d = &c;
+	printf( "%10s%10d%10c\n\n", "hello", 7, 'a' );
+	printf( "%-10s%-10d%-10c\n", "hello", 7, 'a');
+	//printf("Test #: %#x\n\n", 17);
 	printf("%x\n", 16);
 	ft_puthex(16);
 	//write(1, &d, 5);
@@ -125,3 +128,15 @@ int main()
 	ft_putptr(&c);
 	ft_printf("\nhallotest, %s Laura\n", "Ich heiße");
 }
+
+// -
+// 0 +dahinter eine Zahl -> füllt auf so viele Stellen auf, wenn + dabei ist, dann nimmt es auch eine Stelle ein, für d, i, u, x
+// . ("precision") macht das gleiche wie 0, aber 0 beachtet Zeichen (also auch +), während . nur Zahlen beachtet, gilt für i,d, x, u , precison 0 = nichts wird ausgegeben, wenn der Wert 0 ist, für s ist es die maximale Anzahl an zu druckenden charactern, wenn kein Wert für die Precision angegeben wird, dann ist sie 0, wenn Precision nicht angeben wird, ist sie 1
+// .* -> die Precision ist im String nicht specified, sondern wird auch übergeben
+// # hängt vor Hexadezimal also %#x immer ein 0x
+//   setzt ein Leerzeichen vor die Zahl, die wir schreiben, aber nur vor positive
+// + garantiert, dass Zahlen ein Vorzeichen haben -> +150 -> kommt direkt nach %-Zeichen
+
+
+// + overrides space
+// - overrides 0
