@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   put_ptr.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lhoerger <lhoerger@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/15 11:54:57 by lhoerger          #+#    #+#             */
-/*   Updated: 2021/07/12 19:01:39 by lhoerger         ###   ########.fr       */
+/*   Created: 2021/07/26 14:43:59 by lhoerger          #+#    #+#             */
+/*   Updated: 2021/07/26 14:44:00 by lhoerger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "ft_printf.h"
 
-size_t	ft_strlen(const char *s)
+void ft_putptr(void *ptr)
 {
-	int	cnt;
-
-	cnt = 0;
-	while (s[cnt] != '\0')
-	{
-		cnt++;
-	}
-	return (cnt);
+	write (1, "0x", 2);
+	ft_puthex(ptr);
 }

@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   putunsigndec.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lhoerger <lhoerger@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/22 16:39:07 by lhoerger          #+#    #+#             */
-/*   Updated: 2021/07/26 14:43:46 by lhoerger         ###   ########.fr       */
+/*   Created: 2021/07/26 14:44:16 by lhoerger          #+#    #+#             */
+/*   Updated: 2021/07/26 14:44:20 by lhoerger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putchar(char c)
+void ft_putunsigndec(unsigned int i) 
 {
-	write(1, &c, 1);
+	if (i == 0)
+		write(1, "0", 1);
+	else if (i < 10)
+	{
+		i = i + '0';
+		write(1, &i, 1);
+	}
+	else
+	{
+		ft_putunsigndec(i / 10);
+		i = (i % 10) + '0';
+		write(1, &i, 1);
+	}
 }

@@ -6,13 +6,11 @@
 /*   By: lhoerger <lhoerger@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 16:52:39 by lhoerger          #+#    #+#             */
-/*   Updated: 2021/07/12 19:01:56 by lhoerger         ###   ########.fr       */
+/*   Updated: 2021/07/26 16:58:51 by lhoerger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
-size_t	ft_strlen(const char *s);
+#include "ft_printf.h"
 
 void	ft_putstr(char *s)
 {

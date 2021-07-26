@@ -6,12 +6,12 @@
 /*   By: lhoerger <lhoerger@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 17:04:13 by lhoerger          #+#    #+#             */
-/*   Updated: 2021/07/12 19:01:26 by lhoerger         ###   ########.fr       */
+/*   Updated: 2021/07/26 14:43:24 by lhoerger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
-size_t	ft_strlen(const char *s);
+#include "ft_printf.h"
 
 void	ft_putnbr(int n)
 {
