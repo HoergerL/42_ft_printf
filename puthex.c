@@ -6,13 +6,13 @@
 /*   By: lhoerger <lhoerger@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/26 14:44:09 by lhoerger          #+#    #+#             */
-/*   Updated: 2021/07/26 14:44:13 by lhoerger         ###   ########.fr       */
+/*   Updated: 2021/07/27 21:11:01 by lhoerger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void ft_puthex(unsigned long i)
+void ft_puthex(unsigned long i, col *col1)
 {
 	//printf("Beginn: %i\n", i);
 	if (i == 0)
@@ -33,7 +33,7 @@ void ft_puthex(unsigned long i)
 	else
 	{
 		//printf("erreicht else\n");
-		ft_puthex(i / 16);
+		ft_puthex(i / 16, col1);
 		if ((i % 16) < 10)
 		{
 			i = (i % 16) + '0';

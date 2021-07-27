@@ -4,9 +4,9 @@ FILES =
 BONUS = 
 all: $(NAME)
 $(NAME):
-	gcc -Wall -Werror -Wextra $(FILES) -c 
-	gcc -Wall -Werror -Wextra  -c 
-	ar rc $(NAME) *.o ../*.o
+	gcc -Wall -Werror -Wextra -C libft/*.c -c 
+	gcc -Wall -Werror -Wextra  -c *.c
+	ar rc $(NAME) *.o  libft/*.o
 clean:
 	rm -f *.o
 fclean: clean

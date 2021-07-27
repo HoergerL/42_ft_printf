@@ -17,10 +17,11 @@ typedef struct s_col
 
 } col;
 
-void	ft_putptr(void *ptr);
-void 	ft_puthex(unsigned long i);
-void	ft_putunsigndec(unsigned int i);
-void	ft_putstr(char *s);
+void	ft_putptr(void *ptr, col *col1);
+void 	ft_puthex(unsigned long i, col *col1);
+void	ft_putunsigndec(unsigned int i, col *col1);
+void	ft_putstr(char *s, col *col1);
+void	ft_putchar_flags(char c, col *col1);
 void	ft_putchar(char c);
 
 //utils
