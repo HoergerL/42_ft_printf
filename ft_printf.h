@@ -4,6 +4,8 @@
 #include <stddef.h>
 #include <unistd.h>
 
+#include <stdio.h> //entfernen
+
 typedef struct s_col 
 {
 	int minus;
@@ -23,6 +25,7 @@ void	ft_putunsigndec(unsigned int i, col *col1);
 void	ft_putstr(char *s, col *col1);
 void	ft_putchar_flags(char c, col *col1);
 void	ft_putchar(char c);
+void	ft_putnbr(int n, col *col1);
 
 //utils
 size_t	ft_strlen(const char *s);

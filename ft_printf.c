@@ -6,7 +6,7 @@
 /*   By: lhoerger <lhoerger@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 21:13:05 by lhoerger          #+#    #+#             */
-/*   Updated: 2021/07/27 21:41:47 by lhoerger         ###   ########.fr       */
+/*   Updated: 2021/08/01 16:08:03 by lhoerger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,15 +141,16 @@ int ft_printf(const char * format, ...)
 		}
 	}
 	va_end(args);
+	return (col1.len);
 }
 
 
 int main()
 {
-	char c = '1';
-	char *d = &c;
-	printf("%-10c\n", 'a');
-	ft_printf("%-10c", 'a');
+	//char c = '1';
+	//char *d = &c;
+	printf("|%10c|\n", 'a');
+	ft_printf("|%10c|", 'a');
 	//ft_printf( "%-#010s%-1d%#10.1c\n\n", "hello", 7, 'a' );
 	//ft_printf( "%-0#10.4s%-10d%-10c\n", "hello", 7, 'a');
 	//ft_printf("Test #: %#x\n\n", 17);
