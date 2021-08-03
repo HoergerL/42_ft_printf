@@ -6,7 +6,7 @@
 /*   By: lhoerger <lhoerger@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 11:54:57 by lhoerger          #+#    #+#             */
-/*   Updated: 2021/07/26 16:04:44 by lhoerger         ###   ########.fr       */
+/*   Updated: 2021/08/03 16:05:00 by lhoerger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,15 @@ int	ft_lenHelper(int x)
 	if (x >= 10)
 		return (2);
 	return (1);
+}
+
+void ft_fill_spaces(int x)
+{
+	while ((x) - 1 > 0)
+		{
+			// ft_putnbr(col1->width);
+			// ft_putchar('\n');
+			(x)--;
+			ft_putchar(' ');
+		}
 }

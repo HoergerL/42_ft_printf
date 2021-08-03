@@ -6,7 +6,7 @@
 /*   By: lhoerger <lhoerger@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/26 14:43:59 by lhoerger          #+#    #+#             */
-/*   Updated: 2021/07/27 21:11:23 by lhoerger         ###   ########.fr       */
+/*   Updated: 2021/08/03 17:13:39 by lhoerger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,6 @@
 void ft_putptr(void *ptr, col *col1)
 {
 	write (1, "0x", 2);
-	ft_puthex(ptr, col1);
+	col1->len = col1->len + 2;
+	ft_puthex((unsigned long) ptr, col1, 0);
 }

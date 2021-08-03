@@ -6,7 +6,7 @@
 /*   By: lhoerger <lhoerger@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 21:13:05 by lhoerger          #+#    #+#             */
-/*   Updated: 2021/08/01 16:08:03 by lhoerger         ###   ########.fr       */
+/*   Updated: 2021/08/03 17:14:00 by lhoerger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,15 @@ void ft_find_conversion(char s, col *col1, va_list args)
 		ft_putnbr(va_arg(args, int), col1);
 	else if (s == 'u')
 		ft_putunsigndec(va_arg(args, unsigned int), col1);
-	else if (s == 'x')
-		ft_puthex(va_arg(args, int), col1);
+	else if (s == 'x') //Achtung großes X noch
+		ft_puthex(va_arg(args, unsigned long long), col1, 0);
+	else if (s == 'X') //Achtung großes X noch
+		ft_puthex(va_arg(args, unsigned long long), col1, 1);
 	else if (s == '%')
+	{
 		ft_putchar('%');
+		col1->len = col1-> len + 1;
+	}
 }
 
 // - linksbündig, statt rechtsbündig (wichtig im Zusammenhang mit width)
@@ -145,25 +150,57 @@ int ft_printf(const char * format, ...)
 }
 
 
-int main()
-{
-	//char c = '1';
-	//char *d = &c;
-	printf("|%10c|\n", 'a');
-	ft_printf("|%10c|", 'a');
-	//ft_printf( "%-#010s%-1d%#10.1c\n\n", "hello", 7, 'a' );
-	//ft_printf( "%-0#10.4s%-10d%-10c\n", "hello", 7, 'a');
-	//ft_printf("Test #: %#x\n\n", 17);
-	// printf("%x\n", 16);
-	// ft_puthex(16);
-	// //write(1, &d, 5);
-	// printf("%p", d);
-	// //ft_putunsigndec(34547545);
-	// //printf("%u", 34547545);
-	// ft_putstr("\n");
-	// ft_putptr(&c);
-	 //ft_printf("\nhallotest, %s Laura\n", "Ich heiße");
-}
+// int main()
+// {
+// 	printf("len: %i", ft_printf("%p\n", (void *)0xdeadc0de));
+// 	//printf("len: %i", printf("%x\n", (unsigned int) 3735929054));
+// }
+// int main()
+// {
+// 	//char c = '1';
+// 	//char *d = &c;
+// 	// printf("|%10c|\n", 'a');
+// 	// ft_plen: rintf("|%10c|", 'a');
+// printf("len: %i\n", printf("%c\n", '0'));
+// printf("len: %i\n", ft_printf("%c\n", '0'));
+// printf("len: %i\n", ft_printf("\n"));
+// printf("len: %i\n", printf(" %c \n", '0'));
+// printf("len: %i\n", ft_printf(" %c \n", '0'));
+// printf("len: %i\n", ft_printf("\n"));
+// printf("len: %i\n", printf(" %c\n", '0' - 256));
+// printf("len: %i\n", ft_printf(" %c\n", '0' - 256));
+// printf("len: %i\n", ft_printf("\n"));
+// printf("len: %i\n", printf("%c \n", '0' + 256));
+// printf("len: %i\n", ft_printf("%c \n", '0' + 256));
+// printf("len: %i\n", ft_printf("\n"));
+// printf("len: %i\n", printf(" %c %c %c \n", '0', 0, '1'));
+// printf("len: %i\n", ft_printf(" %c %c %c \n", '0', 0, '1'));
+// printf("len: %i\n", ft_printf("\n"));
+// printf("len: %i\n", printf(" %c %c %c \n", ' ', ' ', ' '));
+// printf("len: %i\n", ft_printf(" %c %c %c \n", ' ', ' ', ' '));
+// printf("len: %i\n", ft_printf("\n"));
+// printf("len: %i\n", printf(" %c %c %c \n", '1', '2', '3'));
+// printf("len: %i\n", ft_printf(" %c %c %c \n", '1', '2', '3'));
+// printf("len: %i\n", ft_printf("\n"));
+// printf("len: %i\n", printf(" %c %c %c \n", '2', '1', 0));
+// printf("len: %i\n", ft_printf(" %c %c %c \n", '2', '1', 0));
+// printf("len: %i\n", ft_printf("\n"));
+// printf("len: %i\n", printf(" %c %c %c \n", 0, '1', '2'));
+// printf("len: %i\n", ft_printf(" %c %c %c \n", 0, '1', '2'));
+
+// //ft_printf( "%-#010s%-1d%#10.1c\n\n", "hello", 7, 'a' );
+// 	//ft_printf( "%-0#10.4s%-10d%-10c\n", "hello", 7, 'a');
+// 	//ft_printf("Test #: %#x\n\n", 17);
+// 	// printf("%x\n", 16);
+// 	// ft_puthex(16);
+// 	// //write(1, &d, 5);
+// 	// printf("%p", d);
+// 	// //ft_putunsigndec(34547545);
+// 	// //printf("%u", 34547545);
+// 	// ft_putstr("\n");
+// 	// ft_putptr(&c);
+// 	 //ft_printf("\nhallotest, %s Laura\n", "Ich heiße");
+// }
 
 // int main()
 // {
