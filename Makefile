@@ -1,23 +1,32 @@
+CC = gcc
+
 NAME = libftprintf.a
-FILES = 
 
-BONUS = 
-all: $(NAME)
+FLAGS = -Wall -Wextra -Werror
+
+SRC = *.c
+
+LIBFT_PATH = ./libft/
+
+MAKE = make
+
+all: sub_libft $(NAME)
+
+
 $(NAME):
-	gcc -Wall -Werror -Wextra  -g -c *.c
-	ar rc $(NAME) *.o  ./libft/*.o
+	$(CC) $(FLAGS) -c $(SRC)
+	ar -rcs $(NAME) *.o $(LIBFT_PATH)*.o
 
-libft:
-	gcc -Wall -Werror -Wextra -C ./libft
+sub_libft:
+	$(MAKE) LIBFT.a -C $(LIBFT_PATH)
 
 clean:
+	rm -f *.out
 	rm -f *.o
+	$(MAKE) clean -C $(LIBFT_PATH)
+
 fclean: clean
 	rm -f $(NAME)
+	$(MAKE) fclean -C $(LIBFT_PATH)
 
 re: fclean all
-
-bonus:
-	gcc -Wall -Werror -Wextra  -g -c *.c
-	ar rc $(NAME) *.o  ./libft/*.o
-

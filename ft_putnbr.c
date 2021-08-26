@@ -6,16 +6,38 @@
 /*   By: lhoerger <lhoerger@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 17:04:13 by lhoerger          #+#    #+#             */
-/*   Updated: 2021/08/03 16:55:50 by lhoerger         ###   ########.fr       */
+/*   Updated: 2021/08/26 16:14:09 by lhoerger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 #include "ft_printf.h"
 
+int	ft_do_calculation(int n, col *col1, int new_n)
+{
+	if (n < 0)
+	{
+		write (1, "-", 1);
+		n = -n;
+		col1->len = col1-> len + 1;
+	}
+	if (n / 10 == 0)
+	{
+		n = n + 48;
+		write(1, &n, 1);
+		col1->len = col1-> len + 1;
+		return (0);
+	}
+	new_n = n / 10;
+	ft_putnbr(new_n, col1);
+	n = (n % 10) + 48;
+	write(1, &n, 1);
+	col1->len = col1-> len + 1;
+	return (1);
+}
+
 void	ft_putnbr(int n, col *col1)
 {
-	//printf("%i\n", n);
 	int	new_n;
 
 	new_n = 0;
@@ -25,23 +47,6 @@ void	ft_putnbr(int n, col *col1)
 		col1->len = col1-> len + 11;
 		return ;
 	}
-	if (n < 0)
-	{
-		write (1, "-", 1);
-		n = -n;
-		col1->len = col1-> len + 1;
-	}
-	if (n / 10 == 0)
-	{
-		//printf("kleiner 10: %i\n", n);
-		n = n + 48;
-		write(1, &n, 1);
-		col1->len = col1-> len + 1;
+	if (!(ft_do_calculation(n, col1, new_n)))
 		return ;
-	}
-	new_n = n / 10;
-	ft_putnbr(new_n, col1);
-	n = (n % 10) + 48;
-	write(1, &n, 1);
-	col1->len = col1-> len + 1;
 }
