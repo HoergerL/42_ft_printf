@@ -6,7 +6,7 @@
 /*   By: lhoerger <lhoerger@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/26 14:44:09 by lhoerger          #+#    #+#             */
-/*   Updated: 2021/08/26 13:35:50 by lhoerger         ###   ########.fr       */
+/*   Updated: 2021/08/27 08:17:48 by lhoerger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	put_hexnbr(unsigned long int i, int is_capital)
 	}
 }
 
-void	ft_puthex(unsigned long int i, col *col1, int is_capital)
+void	ft_puthex(unsigned long int i, t_col *col1, int is_capital)
 {
 	if (i == 0)
 	{

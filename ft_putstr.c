@@ -6,13 +6,13 @@
 /*   By: lhoerger <lhoerger@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 16:52:39 by lhoerger          #+#    #+#             */
-/*   Updated: 2021/08/25 16:16:18 by lhoerger         ###   ########.fr       */
+/*   Updated: 2021/08/27 08:17:34 by lhoerger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putstr(char *s, col *col1)
+void	ft_putstr(char *s, t_col *col1)
 {
 	size_t	len;
 

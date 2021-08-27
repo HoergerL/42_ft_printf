@@ -6,7 +6,7 @@
 /*   By: lhoerger <lhoerger@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 21:13:05 by lhoerger          #+#    #+#             */
-/*   Updated: 2021/08/26 13:37:15 by lhoerger         ###   ########.fr       */
+/*   Updated: 2021/08/27 09:58:01 by lhoerger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include "ft_printf.h"
 
-void	ft_find_conversion(char s, col *col1, va_list args)
+void	ft_find_conversion(char s, t_col *col1, va_list args)
 {
 	if (s == 'c')
 		ft_putchar_flags(va_arg(args, int), col1);
@@ -37,7 +37,7 @@ void	ft_find_conversion(char s, col *col1, va_list args)
 	}
 }
 
-void	ft_reset_col(col *col1)
+void	ft_reset_col(t_col *col1)
 {
 	col1->minus = 0;
 	col1->zero = 0;
@@ -51,7 +51,7 @@ void	ft_reset_col(col *col1)
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
-	col		col1;
+	t_col	col1;
 
 	va_start(args, format);
 	col1.len = 0;

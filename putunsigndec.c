@@ -6,13 +6,13 @@
 /*   By: lhoerger <lhoerger@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/26 14:44:16 by lhoerger          #+#    #+#             */
-/*   Updated: 2021/08/26 13:36:39 by lhoerger         ###   ########.fr       */
+/*   Updated: 2021/08/27 08:17:51 by lhoerger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putunsigndec(unsigned int i, col *col1)
+void	ft_putunsigndec(unsigned int i, t_col *col1)
 {
 	if (i == 0)
 	{

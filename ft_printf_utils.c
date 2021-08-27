@@ -6,13 +6,13 @@
 /*   By: lhoerger <lhoerger@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 11:54:57 by lhoerger          #+#    #+#             */
-/*   Updated: 2021/08/25 18:53:16 by lhoerger         ###   ########.fr       */
+/*   Updated: 2021/08/27 08:16:46 by lhoerger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_print_col(col col1)
+void	ft_print_col(t_col col1)
 {
 	ft_printf("\n\ncol:\n");
 	ft_printf("minus: %i\n", col1.minus);

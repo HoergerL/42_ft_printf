@@ -6,13 +6,13 @@
 /*   By: lhoerger <lhoerger@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 16:39:07 by lhoerger          #+#    #+#             */
-/*   Updated: 2021/08/25 16:15:27 by lhoerger         ###   ########.fr       */
+/*   Updated: 2021/08/27 08:17:22 by lhoerger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putchar_flags(char c, col *col1)
+void	ft_putchar_flags(char c, t_col *col1)
 {
 	if (col1->width)
 	{

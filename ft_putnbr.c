@@ -6,14 +6,14 @@
 /*   By: lhoerger <lhoerger@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 17:04:13 by lhoerger          #+#    #+#             */
-/*   Updated: 2021/08/26 16:14:09 by lhoerger         ###   ########.fr       */
+/*   Updated: 2021/08/27 08:17:29 by lhoerger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 #include "ft_printf.h"
 
-int	ft_do_calculation(int n, col *col1, int new_n)
+int	ft_do_calculation(int n, t_col *col1, int new_n)
 {
 	if (n < 0)
 	{
@@ -36,7 +36,7 @@ int	ft_do_calculation(int n, col *col1, int new_n)
 	return (1);
 }
 
-void	ft_putnbr(int n, col *col1)
+void	ft_putnbr(int n, t_col *col1)
 {
 	int	new_n;
 
