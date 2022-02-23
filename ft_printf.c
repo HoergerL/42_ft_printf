@@ -14,63 +14,112 @@
 #include <stdio.h>
 #include "ft_printf.h"
 
-void	ft_find_conversion(char s, t_col *col1, va_list args)
+void	put_hexnbr(unsigned long int i, int is_capital)
 {
-	if (s == 'c')
-		ft_putchar_flags(va_arg(args, int), col1);
-	else if (s == 's')
-		ft_putstr(va_arg(args, char *), col1);
-	else if (s == 'p')
-		ft_putptr(va_arg(args, void *), col1);
-	else if (s == 'i' || s == 'd')
-		ft_putnbr(va_arg(args, int), col1);
-	else if (s == 'u')
-		ft_putunsigndec(va_arg(args, unsigned int), col1);
-	else if (s == 'x')
-		ft_puthex((unsigned long int) va_arg(args, unsigned int), col1, 0);
-	else if (s == 'X')
-		ft_puthex(va_arg(args, unsigned int), col1, 1);
-	else if (s == '%')
+	if ((i % 16) < 10)
 	{
-		ft_putchar('%');
-		col1->len = col1-> len + 1;
+		i = (i % 16) + '0';
+		write(1, &i, 1);
+	}
+	else if (is_capital)
+	{
+		i = (i % 16) + 'A' - 10;
+		write(1, &i, 1);
+	}
+	else
+	{
+		i = (i % 16) + 'a' - 10;
+		write(1, &i, 1);
 	}
 }
 
-void	ft_reset_col(t_col *col1)
+void	ft_puthex(unsigned long int i, int *len, int is_capital)
 {
-	col1->minus = 0;
-	col1->zero = 0;
-	col1->precision = 0;
-	col1->width = 0;
-	col1->plus = 0;
-	col1->space = 0;
-	col1->hash = 0;
+	if (i == 0)
+	{
+		*len = *len + 1;
+		write(1, "0", 1);
+	}
+	else if (i < 16)
+	{
+		*len = *len + 1;
+		put_hexnbr(i, is_capital);
+	}
+	else
+	{
+		*len = *len + 1;
+		ft_puthex(i / 16, len, is_capital);
+		put_hexnbr(i, is_capital);
+	}
+}
+
+void	ft_putunsigndec(unsigned int i, int *len)
+{
+	if (i == 0)
+	{
+		write(1, "0", 1);
+		*len = *len + 1;
+	}
+	else if (i < 10)
+	{
+		i = i + '0';
+		write(1, &i, 1);
+		*len = *len + 1;
+	}
+	else
+	{
+		ft_putunsigndec(i / 10, len);
+		i = (i % 10) + '0';
+		write(1, &i, 1);
+		*len = *len + 1;
+	}
+}
+
+void	ft_find_conversion(char s, int *len, va_list args)
+{
+	if (s == 'c')
+		ft_putchar(va_arg(args, int));
+	else if (s == 's')
+		ft_putstr(va_arg(args, char *), len);
+	else if (s == 'p')
+		ft_putptr(va_arg(args, void *), len);
+	else if (s == 'i' || s == 'd')
+		ft_putnbr(va_arg(args, int), len);
+	else if (s == 'u')
+		ft_putunsigndec(va_arg(args, unsigned int), len);
+	else if (s == 'x')
+		ft_puthex((unsigned long int) va_arg(args, unsigned int), len, 0);
+	else if (s == 'X')
+		ft_puthex(va_arg(args, unsigned int), len, 1);
+	else if (s == '%')
+	{
+		ft_putchar('%');
+		len = len + 1;
+	}
 }
 
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
-	t_col	col1;
+	int		len;
 
 	va_start(args, format);
-	col1.len = 0;
+	len = 0;
 	while (*format != '\0')
 	{	
 		if (*format == '%')
 		{
 			format++;
-			ft_reset_col(&col1);
-			ft_find_conversion(*format, &col1, args);
+			ft_find_conversion(*format, &len, args);
 			format++;
 		}
 		else
 		{
 			ft_putchar(*format);
 			format++;
-			col1.len += 1;
+			len += 1;
 		}
 	}
 	va_end(args);
-	return (col1.len);
+	return (len);
 }

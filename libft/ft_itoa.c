@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static int	ft_lenHelper(int x)
+static int	ft_len_helper(int x)
 {
 	if (x >= 1000000000)
 		return (10);
@@ -66,11 +66,11 @@ char	*ft_itoa(int n)
 		return (ft_strdup("-2147483648"));
 	if (n < 0)
 	{
-		len = ft_lenHelper(-n);
+		len = ft_len_helper(-n);
 		len++;
 	}
 	else
-		len = ft_lenHelper(n);
+		len = ft_len_helper(n);
 	str = (char *) malloc(sizeof(char) * len + 1);
 	if (!str)
 		return (NULL);
