@@ -1,4 +1,4 @@
-# ft_printf
+# Ft_printf
 In this project, the printf function must be reprogrammed. The following conversions must be implemented:
 ```c
 * c char
