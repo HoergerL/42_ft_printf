@@ -9,7 +9,7 @@ In this project, the printf function must be reprogrammed. The following convers
 * x/X unsigned int (hexadecimal)
 ```
 
-## challenge of the project
+## Challenge of the project
 The challenge of the project was to implement the conversion. 
 Especially the implementation of hexadecimal numbers was very valuable, because it makes you look at converting to other number systems. 
 Also the conversion to pointers was interesting, because you had to understand how a pointer is constructed.
